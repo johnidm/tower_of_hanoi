@@ -6,14 +6,14 @@
     <Transaction>2014/01/15 22:03:52.000.407,=C:\Users\VM_WIN7\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2014/01/23 22:37:39.000.220,=C:\Users\VM_WIN7\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2014/01/23 22:50:20.000.871,C:\Users\VM_WIN7\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\VM_WIN7\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2014/01/24 21:46:42.000.466,C:\Users\VM_WIN7\Documents\RAD Studio\Projects\Project1.dproj=F:\tower_of_hanoi\TowerOfHanoi.dproj</Transaction>
+    <Transaction>2014/01/24 21:46:42.000.466,F:\tower_of_hanoi\TowerOfHanoi.dproj=C:\Users\VM_WIN7\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2014/02/23 19:36:49.000.203,=F:\tower_of_hanoi\Unit1.pas</Transaction>
-    <Transaction>2014/02/23 19:36:58.000.540,F:\tower_of_hanoi\Unit1.pas=F:\tower_of_hanoi\Algoritmo.TorreDeHanoi.pas</Transaction>
-    <Transaction>2014/02/23 19:37:17.000.088,F:\tower_of_hanoi\DesenhaDiscos.pas=F:\tower_of_hanoi\DesenhaD.iscos.pas</Transaction>
-    <Transaction>2014/02/23 19:37:29.000.417,F:\tower_of_hanoi\DesenhaD.iscos.pas=F:\tower_of_hanoi\Desenha.Discos.pas</Transaction>
-    <Transaction>2014/02/23 19:39:24.000.887,F:\tower_of_hanoi\TorreHanoi.pas=F:\tower_of_hanoi\GerenciadorTorreHanoi.pas</Transaction>
-    <Transaction>2014/02/23 19:39:28.000.220,F:\tower_of_hanoi\GerenciadorTorreHanoi.pas=F:\tower_of_hanoi\Gerenciador.TorreHanoi.pas</Transaction>
-    <Transaction>2014/02/23 19:42:58.000.978,F:\tower_of_hanoi\Principal.pas=F:\tower_of_hanoi\UI.Principal.pas</Transaction>
-    <Transaction>2014/02/23 19:42:58.000.978,F:\tower_of_hanoi\Principal.dfm=F:\tower_of_hanoi\UI.Principal.dfm</Transaction>
+    <Transaction>2014/02/23 19:36:58.000.540,F:\tower_of_hanoi\Algoritmo.TorreDeHanoi.pas=F:\tower_of_hanoi\Unit1.pas</Transaction>
+    <Transaction>2014/02/23 19:37:17.000.088,F:\tower_of_hanoi\DesenhaD.iscos.pas=F:\tower_of_hanoi\DesenhaDiscos.pas</Transaction>
+    <Transaction>2014/02/23 19:37:29.000.417,F:\tower_of_hanoi\Desenha.Discos.pas=F:\tower_of_hanoi\DesenhaD.iscos.pas</Transaction>
+    <Transaction>2014/02/23 19:39:24.000.887,F:\tower_of_hanoi\GerenciadorTorreHanoi.pas=F:\tower_of_hanoi\TorreHanoi.pas</Transaction>
+    <Transaction>2014/02/23 19:39:28.000.220,F:\tower_of_hanoi\Gerenciador.TorreHanoi.pas=F:\tower_of_hanoi\GerenciadorTorreHanoi.pas</Transaction>
+    <Transaction>2014/02/23 19:42:58.000.978,F:\tower_of_hanoi\UI.Principal.dfm=F:\tower_of_hanoi\Principal.dfm</Transaction>
+    <Transaction>2014/02/23 19:42:58.000.978,F:\tower_of_hanoi\UI.Principal.pas=F:\tower_of_hanoi\Principal.pas</Transaction>
   </Transactions>
 </BorlandProject>

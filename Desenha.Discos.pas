@@ -3,10 +3,17 @@ unit Desenha.Discos;
 interface
 
 uses
-  Vcl.ExtCtrls, Vcl.Graphics;
+  Math,
+  System.UITypes,
+  Vcl.ExtCtrls,
+  Vcl.Graphics;
 
 type
   TDesenjaDiscos = class
+  strict private
+    const
+      ESCALA_TAMANHO_DISCO = 15;
+      ESCALA_LARGURA_DISCO = 20;
   public
     type
       TDisco = record
@@ -21,13 +28,12 @@ type
       end;
 
   public
-    class procedure Desenhar( APainel: TPanel;  const ADiscos: TDiscos
+    class procedure DesenharDiscos( APainel: TPanel;  const ADiscos: TDiscos
       ); overload;
-    class procedure Desenhar( APainel: TPanel;  const AIndice, ATamanho:
+    class procedure DesenharDiscos( APainel: TPanel;  const AIndice, ATamanho:
       Integer; ACor: TColor); overload;
 
     class procedure Apagar( APainel: TPanel ); overload;
-
     class procedure Apagar( APainel: TPanel;  const AIndice, ATamanho:
       Integer; ACor: TColor); overload;
   end;
@@ -44,11 +50,9 @@ type
 
 { TDesenjaDiscos }
 
-class procedure TDesenjaDiscos.Desenhar( APainel: TPanel;
+class procedure TDesenjaDiscos.DesenharDiscos( APainel: TPanel;
   const ADiscos: TDiscos );
-
 var
-  PosicaoEsquerda: Integer;
   Indice: Integer;
   CorOriginal: TColor;
 
@@ -58,7 +62,7 @@ begin
   CorOriginal := THackPanel( APainel ).Canvas.Brush.Color;
 
   for Indice := Low( ADiscos ) to High( ADiscos ) do
-    TDesenjaDiscos.Desenhar( APainel, Indice, ADiscos[Indice].Tamanho, ADiscos[Indice].Cor);
+    TDesenjaDiscos.DesenharDiscos( APainel, Indice, ADiscos[Indice].Tamanho, ADiscos[Indice].Cor);
 
   THackPanel( APainel ).Canvas.Brush.Color := CorOriginal;
 
@@ -67,7 +71,7 @@ end;
 class procedure TDesenjaDiscos.Apagar(APainel: TPanel; const AIndice,
   ATamanho: Integer; ACor: TColor);
 begin
-  TDesenjaDiscos.Desenhar(APainel, AIndice, ATamanho, APainel.Color);
+  TDesenjaDiscos.DesenharDiscos(APainel, AIndice, ATamanho, APainel.Color);
 end;
 
 class procedure TDesenjaDiscos.Apagar(APainel: TPanel);
@@ -77,10 +81,10 @@ begin
   THackPanel( APainel ).Canvas.Rectangle( 0, 0, APainel.Width, APainel.Height );
 end;
 
-class procedure TDesenjaDiscos.Desenhar(APainel: TPanel; const AIndice,
+
+class procedure TDesenjaDiscos.DesenharDiscos(APainel: TPanel; const AIndice,
   ATamanho: Integer; ACor: TColor);
-const
-  ESCALA_TAMANHO = 20;
+
 var
   MetadeTamanhoPainel: Integer;
   MetadeTamanhoDisco, TamanhoDisco: Integer;
@@ -91,17 +95,16 @@ begin
 
   MetadeTamanhoPainel:= Trunc( APainel.Width / 2 );
 
-  TamanhoDisco:= ATamanho * ESCALA_TAMANHO;
+  TamanhoDisco:= ATamanho * ESCALA_TAMANHO_DISCO;
   MetadeTamanhoDisco:= Trunc( TamanhoDisco / 2 );
 
-  Rect.Left:= MetadeTamanhoPainel - MetadeTamanhoDisco; // Desenhar no
+  Rect.Left:= MetadeTamanhoPainel - MetadeTamanhoDisco - Trunc( ESCALA_LARGURA_DISCO / 2 );
 
-  Rect.Top:= APainel.Height - ( ESCALA_TAMANHO + ( AIndice * ESCALA_TAMANHO { * 2 }  ) );
+  Rect.Top:= APainel.Height - ( ESCALA_TAMANHO_DISCO + ( AIndice * ESCALA_TAMANHO_DISCO { * 2 }  ) );
 
-  Rect.Bottom:=APainel.Height - (  ( ESCALA_TAMANHO   * 2  ) + ( AIndice *
-    ESCALA_TAMANHO { * 2 }  ) );
+  Rect.Bottom:= APainel.Height - ( AIndice * ESCALA_TAMANHO_DISCO );
 
-  Rect.Right:= TamanhoDisco + Rect.Left;
+  Rect.Right:= TamanhoDisco + Rect.Left  + ESCALA_LARGURA_DISCO;
 
   THackPanel( APainel ).Canvas.Brush.Color:= ACor;
   THackPanel( APainel ).Canvas.Rectangle( Rect );

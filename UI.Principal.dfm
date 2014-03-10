@@ -3,8 +3,8 @@ object Form2: TForm2
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Torre de Han'#243'i'
-  ClientHeight = 393
-  ClientWidth = 959
+  ClientHeight = 383
+  ClientWidth = 882
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,16 +19,17 @@ object Form2: TForm2
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 729
-    Height = 374
-    Align = alLeft
+    Width = 882
+    Height = 364
+    Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitHeight = 449
     object PnlOrigem: TPanel
       Left = 16
-      Top = 16
-      Width = 224
-      Height = 345
+      Top = 87
+      Width = 280
+      Height = 266
       BevelInner = bvRaised
       BevelOuter = bvLowered
       BiDiMode = bdRightToLeft
@@ -36,45 +37,35 @@ object Form2: TForm2
       TabOrder = 0
     end
     object PnlAuxiliar: TPanel
-      Left = 256
-      Top = 16
-      Width = 224
-      Height = 345
+      Left = 302
+      Top = 87
+      Width = 280
+      Height = 266
       BevelInner = bvRaised
       BevelOuter = bvLowered
       TabOrder = 1
     end
     object PnlDestino: TPanel
-      Left = 496
-      Top = 16
-      Width = 224
-      Height = 345
+      Left = 588
+      Top = 87
+      Width = 280
+      Height = 266
       BevelInner = bvRaised
       BevelOuter = bvLowered
       TabOrder = 2
     end
-  end
-  object Panel2: TPanel
-    Left = 729
-    Top = 0
-    Width = 230
-    Height = 374
-    Align = alClient
-    BevelOuter = bvNone
-    BorderWidth = 5
-    TabOrder = 1
     object GroupBox1: TGroupBox
-      Left = 5
-      Top = 5
-      Width = 220
-      Height = 364
-      Align = alClient
-      TabOrder = 0
+      Left = 0
+      Top = 0
+      Width = 882
+      Height = 65
+      Align = alTop
+      TabOrder = 3
       object BitBtn1: TBitBtn
-        Left = 16
-        Top = 75
-        Width = 185
-        Height = 57
+        Left = 159
+        Top = 19
+        Width = 110
+        Height = 34
         Hint = 'Criar Discos'
         Caption = 'Crar Discos'
         Glyph.Data = {
@@ -158,10 +149,10 @@ object Form2: TForm2
         OnClick = BitBtn1Click
       end
       object BitBtn2: TBitBtn
-        Left = 16
-        Top = 153
-        Width = 185
-        Height = 59
+        Left = 275
+        Top = 19
+        Width = 110
+        Height = 34
         Caption = 'Processar'
         Glyph.Data = {
           36090000424D3609000000000000360000002800000018000000180000000100
@@ -242,13 +233,13 @@ object Form2: TForm2
         OnClick = BitBtn2Click
       end
       object ButtonedEdit1: TButtonedEdit
-        Left = 16
-        Top = 27
-        Width = 185
-        Height = 22
+        Left = 32
+        Top = 20
+        Width = 105
+        Height = 31
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -19
         Font.Name = 'Tahoma'
         Font.Style = []
         Images = ImageList1
@@ -260,10 +251,10 @@ object Form2: TForm2
         OnRightButtonClick = ButtonedEdit1RightButtonClick
       end
       object BitBtn3: TBitBtn
-        Left = 16
-        Top = 233
-        Width = 185
-        Height = 59
+        Left = 750
+        Top = 19
+        Width = 110
+        Height = 34
         Caption = 'Fechar'
         Glyph.Data = {
           36090000424D3609000000000000360000002800000018000000180000000100
@@ -347,20 +338,21 @@ object Form2: TForm2
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 374
-    Width = 959
+    Top = 364
+    Width = 882
     Height = 19
     Panels = <
       item
         Text = 'Estrutura de Dados II'
         Width = 50
       end>
+    ExplicitTop = 449
   end
   object ImageList1: TImageList
-    Left = 822
-    Top = 317
+    Left = 630
+    Top = 13
     Bitmap = {
-      494C010101000800140010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010101000800200010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000007878781178787801000000000000000085AD

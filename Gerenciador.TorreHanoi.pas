@@ -12,11 +12,14 @@ type
     QuantidadeDiscos: Integer;
 
   public
-    procedure Iniciar(const AQuantidadeDiscos: Integer);
+    procedure DesenharDiscos(const AQuantidadeDiscos: Integer);
+
     procedure Executar();
 
-    constructor Create(const APainelOrigem, APainelAuxiliar, APainelDestino
-      : TPanel);
+    function VerificarSeOsDiscosForamCriados(): Boolean;
+
+    constructor Create(const APainelOrigem, APainelAuxiliar,
+      APainelDestino: TPanel);
   end;
 
 implementation
@@ -34,42 +37,8 @@ begin
   PinoDestino.Painel := APainelDestino;
 end;
 
+
 procedure TTorreHanoi.Executar;
-
-{$REGION 'Métodos de teste' }
-
-(*
-  procedure InverteDiscos();
-  var
-  Indice, Metade: Integer;
-  Temp: TDesenjaDiscos.TDisco;
-  begin
-  Metade:= Trunc( Length( DiscosOrigem ) / 2);
-  for Indice := Low( DiscosOrigem ) to Pred( Metade ) do
-  begin
-  Temp:= DiscosOrigem[ Indice ];
-  DiscosOrigem[ Indice ] := DiscosOrigem[ High( DiscosOrigem ) - Indice ];
-  DiscosOrigem[ High( DiscosOrigem ) - Indice ] := Temp;
-  end;
-  end;
-
-  procedure Embaralhar();
-  var
-  Temp: TDesenjaDiscos.TDisco;
-  Range, Indice, RandonIdx: Integer;
-  begin
-  Range:= Succ( High( DiscosOrigem ) -  Low( DiscosOrigem ) );
-  for Indice := Low( DiscosOrigem ) to High( DiscosOrigem ) do
-  begin
-  RandonIdx:= Low( DiscosOrigem ) + Random( Range );
-  Temp:= DiscosOrigem[ Indice ];
-  DiscosOrigem[ Indice ]:= DiscosOrigem[ RandonIdx ];
-  DiscosOrigem[ RandonIdx ]:= Temp;
-  end;
-  end;
-*)
-{$ENDREGION}
-
 var
   Algoritmo: TAlgoritmo;
 
@@ -88,11 +57,23 @@ begin
 
 end;
 
-procedure TTorreHanoi.Iniciar(const AQuantidadeDiscos: Integer);
+function TTorreHanoi.VerificarSeOsDiscosForamCriados: Boolean;
+begin
+  // Se o vetor estiver preenchido
+  // indica que já foi inicializado
+  Result := Length(PinoOrigem.Discos) > 0;
+end;
+
+procedure TTorreHanoi.DesenharDiscos( const AQuantidadeDiscos: Integer);
 var
   Indice: Integer;
   Tamanho: Integer;
 begin
+  TDesenjaDiscos.Apagar(PinoOrigem.Painel);
+  TDesenjaDiscos.Apagar(PinoDestino.Painel);
+  TDesenjaDiscos.Apagar(PinoAuxiliar.Painel);
+
+
   Tamanho := 0;
   QuantidadeDiscos := AQuantidadeDiscos;
 
@@ -111,7 +92,7 @@ begin
   SetLength(PinoAuxiliar.Discos, 0);
   SetLength(PinoDestino.Discos, 0);
 
-  TDesenjaDiscos.Desenhar(PinoOrigem.Painel, PinoOrigem.Discos);
+  TDesenjaDiscos.DesenharDiscos(PinoOrigem.Painel, PinoOrigem.Discos);
 end;
 
 end.

@@ -4,6 +4,7 @@ interface
 
 uses
   Gerenciador.TorreHanoi,
+  System.UITypes,
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
   Vcl.ComCtrls, Vcl.ImgList;
@@ -11,16 +12,15 @@ uses
 type
   TForm2 = class(TForm)
     Panel1: TPanel;
-    Panel2: TPanel;
-    GroupBox1: TGroupBox;
     PnlOrigem: TPanel;
     PnlAuxiliar: TPanel;
     PnlDestino: TPanel;
-    BitBtn1: TBitBtn;
     StatusBar1: TStatusBar;
+    ImageList1: TImageList;
+    GroupBox1: TGroupBox;
+    BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
     ButtonedEdit1: TButtonedEdit;
-    ImageList1: TImageList;
     BitBtn3: TBitBtn;
     procedure BitBtn1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -32,7 +32,7 @@ type
     { Private declarations }
   public
     { Public declarations }
-    TorreHanoi: TTorreHanoi;
+    TorreHanoi: TTorreHanoi; // declaração do objeto que ira processar o algoritmo da torre de hanói
   end;
 
 var
@@ -45,19 +45,24 @@ implementation
 
 procedure TForm2.BitBtn1Click(Sender: TObject);
 begin
-  // Esse metodo inicia os discos
-  TorreHanoi.Iniciar( StrToInt( ButtonedEdit1.Text ) );
+  // Esse metodo desenha os discos
+  TorreHanoi.DesenharDiscos( StrToInt( ButtonedEdit1.Text ) );
 end;
 
 procedure TForm2.BitBtn2Click(Sender: TObject);
 begin
-  // Executa o algoritmo da torre de hanói
-  TorreHanoi.Executar();
+
+  // verifica se os discos ja estão crados
+  if ( TorreHanoi.VerificarSeOsDiscosForamCriados ) then
+   TorreHanoi.Executar() // Executa o algoritmo da torre de hanói
+  else
+    MessageDlg( 'É necessário criar os discos', mtInformation, [mbOk], 0 );
 end;
 
 procedure TForm2.BitBtn3Click(Sender: TObject);
 begin
-  Close();
+  if ( MessageDlg( 'Deseja realmente sair?', mtConfirmation, [mbYes, mbNo], 0 ) = mrYes ) then
+    Close();
 end;
 
 procedure TForm2.ButtonedEdit1RightButtonClick(Sender: TObject);
@@ -71,12 +76,14 @@ end;
 
 procedure TForm2.FormCreate(Sender: TObject);
 begin
-  // Cria o objeto ressponsável por executar as ações da torre de hanói
+  // Cria o objeto responsável por processar o algoritmo da torre de hanói
   TorreHanoi:= TTorreHanoi.Create( PnlOrigem, PnlAuxiliar, PnlDestino );
+
 end;
 
 procedure TForm2.FormDestroy(Sender: TObject);
 begin
+   // destroi o objeto criado para processar o algoritmo da torre de hanói
   FreeAndNil( TorreHanoi )
 end;
 
